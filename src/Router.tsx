@@ -3,12 +3,13 @@ import { LoginPage } from './pages/LoginPage'
 import IndexPage from './pages/IndexPage'
 import UserPage from './pages/UserPage'
 import RoiPage from './pages/RoiPage'
-import CustomerPage from './pages/CustomerPage'
+import CustomerPage from './pages/CustomersPage/CustomerPage'
 import CustomersPage from './pages/CustomersPage'
 import RegisterUserPage from './pages/RegisterUserPage'
 import ForgotPage from './pages/ForgotPage'
 import TasksPage from './pages/TasksPage'
 import { useParams } from 'react-router-dom';
+import CustomerEditPage from './pages/CustomersPage/CustomerEditPage/CustomerEditPage'
 
 export function PageRoutes(){
   return (
@@ -18,6 +19,7 @@ export function PageRoutes(){
       <Route path="/profile/:userId" element={<UserPage/>}/>
       <Route path="/roi" element={<RoiPage/>}/>
       <Route path="/customer/:customerId" element={<CustomerPage/>}/>
+      <Route path="/customer/edit/:customerId" element={<CustomerEditPage/>}/>
       <Route path="/customers/:userId" element={<CustomersPage/>}/>
       <Route path="/register" element={<RegisterUserPage/>}/>
       <Route path="/forgot" element={<ForgotPage/>}/>

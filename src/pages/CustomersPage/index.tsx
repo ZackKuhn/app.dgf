@@ -16,6 +16,8 @@ import { CustomerDataTypes } from '../../utils/dataTypes';
 import Lottie from 'react-lottie-player';
 import dgthus_loader from '../../assets/lottieAnimations/dgthus_loader.json';
 
+import Funnel from '../../components/Nivo/Funnel';
+
 //Icons
 import { BiUserPin as CustomersIcon } from 'react-icons/bi';
 import { MdOutlineOpenInNew as OpenIcon } from 'react-icons/md';
@@ -93,7 +95,7 @@ const CustomersPage: React.FC = () => {
               ))
             }
           </div>
-            <CustomerTable>
+            <CustomerTable> 
               {
               data.map(item => (
                 <CustomerRow key={item.id}>

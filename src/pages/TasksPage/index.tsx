@@ -118,7 +118,6 @@ const TasksPge: React.FC = () => {
               }
             </TaskTable>
         </TaskDataBox>
-        <ContactFooter />
         </> :
         <div className="loadingContainer">
           <Lottie

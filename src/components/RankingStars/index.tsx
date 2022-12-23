@@ -6,26 +6,33 @@ import {RiEmotionHappyLine, RiEmotionNormalLine, RiEmotionUnhappyLine, RiEmotion
 import { colors } from '../../styles/Colors';
 import { Container, RankingModal } from './styles';
 
+import api from '../../utils/api'
+
 type RankingProp = {
   rate: number
+  rateowner: string
 }
 
-const RankingStars: React.FC<RankingProp> = ({rate}) => {
+const RankingStars: React.FC<RankingProp> = ({rate, rateowner}) => {
 
-  const [ranking, setRanking] = useState(0);
-  const [iconColor, setIconColor] = useState('')
+  const [ranking, setRanking] = useState(1);
   const [openIconModal, setOpenIconModal] = useState(false)
 
   useEffect(()=>{
     setRanking(rate)
   }, [])
 
-  const iconSize = 20
+  const handleChangeRating = ()=>{
+    api.post('/customers/uprating', {'id': rateowner, 'rating': ranking})
+  }
+  
+
+  const iconSize = 22 
 
   const handleClick = ()=>{
     setOpenIconModal(!openIconModal)
+    
   }
-
   return (
     <Container>
       <div className="RankingIcon" onClick={handleClick}>
@@ -41,15 +48,16 @@ const RankingStars: React.FC<RankingProp> = ({rate}) => {
         {
           openIconModal &&
           <RankingModal
+          onMouseLeave={()=> {handleChangeRating(); setOpenIconModal(false)}}
           key={1}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}>
-            <MdOutlineEmojiEmotions size={iconSize} color={colors.lineDividerColor}/>
-            <RiEmotionHappyLine size={iconSize} color={colors.lineDividerColor}/>
-            <RiEmotionNormalLine size={iconSize} color={colors.lineDividerColor}/>
-            <RiEmotionUnhappyLine size={iconSize} color={colors.lineDividerColor}/>
-            <RiEmotionSadLine size={iconSize} color={colors.lineDividerColor}/>
+            <MdOutlineEmojiEmotions onClick={() => {setRanking(5)}} size={iconSize} color={colors.lineDividerColor}/>
+            <RiEmotionHappyLine onClick={() => {setRanking(4)}} size={iconSize} color={colors.lineDividerColor}/>
+            <RiEmotionNormalLine onClick={() => {setRanking(3)}} size={iconSize} color={colors.lineDividerColor}/>
+            <RiEmotionUnhappyLine onClick={() => {setRanking(2)}} size={iconSize} color={colors.lineDividerColor}/>
+            <RiEmotionSadLine onClick={() => {setRanking(1)}} size={iconSize} color={colors.lineDividerColor}/>
           </RankingModal>
         }
         </AnimatePresence>

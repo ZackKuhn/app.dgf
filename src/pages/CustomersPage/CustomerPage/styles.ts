@@ -4,7 +4,7 @@ import { DiGoogleDrive } from 'react-icons/di'
 import { SiGoogleads } from 'react-icons/si'
 import { TbBrandMeta } from 'react-icons/tb'
 
-import {colors} from '../../styles/Colors'
+import {colors} from '../../../styles/Colors'
 
 export const Container = styled.div`
   display: flex;
@@ -86,7 +86,7 @@ border-radius: 7px;
     gap: 4px;
   }
 
-  .RankingButtom{
+  .RankingButtom, .EditButton{
     display: flex;
     justify-content: center;
     align-items: center;

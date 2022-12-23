@@ -10,6 +10,7 @@ export const Container = styled.div`
   width: 44px;
   height: 44px; 
   cursor: pointer;
+
   .RankingIcon{
     display: flex;
     justify-content: center;
@@ -22,16 +23,15 @@ export const Container = styled.div`
       background-color: ${colors.firstContainerColor};
     }
   }
- 
 `
-
   export const RankingModal = styled(motion.div)`
   z-index: 999;
   display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 8px 0;
-    width: 40px;
+  margin-top: 15px;
+  width: 40px;
   align-items: center;
   position: absolute;
   height: fit-content;

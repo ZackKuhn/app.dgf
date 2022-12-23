@@ -2,6 +2,7 @@ import { FieldProps } from 'formik'
 import React from 'react'
 import Option from 'react-select'
 import ReactSelectProps from 'react-select'
+import StateManagedSelect from 'react-select/dist/declarations/src/stateManager'
 
 import {StyledSelectComponent} from './styles'
 

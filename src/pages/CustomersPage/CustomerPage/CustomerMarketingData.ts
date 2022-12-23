@@ -11,7 +11,7 @@ interface CtmMarkTypes {
 export const CustomerMarketingData: CtmMarkTypes[] = [
     {
       id: 1,  
-      data_label: 'investimento',
+      data_label: 'Investimento',
       data_value: 'R$ 2.500',
       indicator:{
         value: 12,
@@ -20,7 +20,7 @@ export const CustomerMarketingData: CtmMarkTypes[] = [
     },
     {
       id: 2,  
-      data_label: 'faturamento',
+      data_label: 'Faturamento',
       data_value: 'R$ 11.437',
       indicator:{
         value: 25,
@@ -29,7 +29,7 @@ export const CustomerMarketingData: CtmMarkTypes[] = [
     },
     {
       id: 3,  
-      data_label: 'vendas',
+      data_label: 'Vendas',
       data_value: '147',
       indicator:{
         value: 0,

@@ -33,7 +33,7 @@ const IndexPage: React.FC = () => {
           <MessageBanner />
           <MainBoxes/>
           <CustomerIndexBar />
-          <ContactFooter />
+          <ContactFooter pageReference="index"/>
           </> : <Loader />
         }
       </Content>

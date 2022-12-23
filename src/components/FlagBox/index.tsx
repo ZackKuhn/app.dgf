@@ -17,8 +17,8 @@ const FlagBox: React.FC<flagProps> = ({flagcolor, flagowner}) => {
 
   const handleChangeFlag = ()=>{
     api.post('/customers/upflag', {'id': flagowner, 'flag': flagColor})
-    console.log({flagowner, flagColor})
   }
+  
   return (
     <Container>
       <MainFlagContainer onClick={() => setIsOpenned(!isOpenned)} bgactive={isOpenned}>

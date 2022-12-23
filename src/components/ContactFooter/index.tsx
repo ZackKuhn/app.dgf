@@ -10,7 +10,11 @@ import {WhatsIcon} from '../../assets/Icons'
 
 import { Container, Wbutton } from './styles';
 
-const ContactFooter: React.FC = () => {
+interface CFooterDTO {
+  pageReference: string
+}
+
+const ContactFooter: React.FC<CFooterDTO> = ({pageReference}) => {
   return (
     <Container to={"https://api.whatsapp.com/send?phone=5534998987743&text=Preciso%20da%20sua%20ajuda."} target="_blank" >
       <div className="LeftSide">
@@ -19,7 +23,10 @@ const ContactFooter: React.FC = () => {
       </div>
       <div className="RightSide">
         <Wbutton >
-          <span>Entrar em contato</span>
+          {
+            pageReference === "dgplayer" && <span>Falar com o cliente</span> ||
+            pageReference === "index" && <span>Entrar em contato</span>
+          }
           <WhatsIcon/>
         </Wbutton>
       </div>
