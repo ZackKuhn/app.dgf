@@ -52,7 +52,7 @@ const RegisterUserForm: React.FC<{}> = () => {
   }
 
   const handleSubmit = (values: FormValues) => {
-    api.post('/customers/create', { values, source: 'asdfsdf' })
+    api.post('/customers/create', values)
   }
 
   return (
@@ -87,13 +87,13 @@ const RegisterUserForm: React.FC<{}> = () => {
                 component={StyledSelect}
                 options={bns_model_items}
                 placeholder="Modelo de negócios"
-              />
+                />
               <Field
                 name={'deal'}
                 component={StyledSelect}
                 options={deal_items}
                 placeholder="Contrato"
-              />
+                />
               <StyledButton type="submit">REGISTRAR</StyledButton>
             </StyledFormikForm>
           )}

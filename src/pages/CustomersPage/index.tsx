@@ -121,7 +121,7 @@ const CustomersPage: React.FC = () => {
               }
             </CustomerTable>
         </CustomerDataBox>
-        <ContactFooter />
+        <ContactFooter pageReference='index'/>
         </> :
         <div className="loadingContainer">
           <Lottie

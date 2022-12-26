@@ -81,7 +81,7 @@ const RoiPage: React.FC = () => {
         </InputContainer>
         </FirstBox>
         <CustomerIndexBar />
-        <ContactFooter />
+        <ContactFooter pageReference='index'/>
         </> :
         <div className="loadingContainer"></div>
         }

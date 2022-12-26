@@ -17,6 +17,9 @@ import { step_items } from './EditCustomerOptions';
 
 interface FormValues {
   name: string
+  deal: string
+  bns_model: string
+  step: string
 }
 
 const spec = [
@@ -41,6 +44,7 @@ const EditCustomerForm: React.FC<{}> = () => {
   const [customerData, setData] = useState<CustomerDataTypes[]>([]);
   const [loading, setLoading] = useState(false);
   const [editValue, setEditValue] = useState(false);
+  const [infoField, setInfoField] = useState({})
   const apiRoute: string = `customers/${customerId}`
 
   const [goToConfirmation, setGoToConfirmation] = useState(false)
@@ -58,6 +62,9 @@ const EditCustomerForm: React.FC<{}> = () => {
 
   const customerInitValues: FormValues = {
     name: '',
+    deal: '',
+    bns_model: '',
+    step: '',
   }
 
   useEffect(() => {
@@ -65,6 +72,11 @@ const EditCustomerForm: React.FC<{}> = () => {
       setData(response.data);})
       setLoading(true)
 }, [])
+
+  const handleClick = ()=>{
+    setEditValue(!editValue)
+    editValue ? setInfoField(customerData.map(customer => (customer.name))) : "é falso"
+  }
 
   return (
   <Container>
@@ -78,6 +90,9 @@ const EditCustomerForm: React.FC<{}> = () => {
         actions.setSubmitting(false);
         actions.resetForm({values: {
           name: '',
+          deal: '',
+          bns_model: '',
+          step: '',
           }})
           console.log(values)
         }}
@@ -87,7 +102,7 @@ const EditCustomerForm: React.FC<{}> = () => {
         {
                 customerData.map(customer =>(
                   <>
-                  <StyledFormikInput id="name" name="name" placeholder="Razão Social" value={customer.name}/>
+                  <StyledFormikInput id="name" name="name" placeholder="Razão Social" onClick={handleClick} value={infoField}/>
                   <StyledFormikInput id="deal" name="deal" placeholder="Contrato" value={customer.deal}/>
                   <Field name={'bns_model'} component={StyledSelect} options={step_items} placeholder="Step do projeto"/>
                   <StyledFormikInput id="step" name="step" placeholder="Step" value={customer.step}/>
